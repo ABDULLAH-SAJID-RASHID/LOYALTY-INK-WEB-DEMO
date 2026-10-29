@@ -1,0 +1,121 @@
+/* =========================================================
+   LOYALTY INK — Executive Chrome & Custom Typography
+   ========================================================= */
+
+:root {
+  /* Platinum Steel / Chrome Palette */
+  --accent: #E2E8F0;
+  --accent-light: #FFFFFF;
+  --accent-glow: rgba(226, 232, 240, 0.25);
+  
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #08090C;
+}
+::-webkit-scrollbar-thumb {
+  background: #181B26;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Customized Editorial Hero Headline Styling */
+.hero-headline-styled {
+  letter-spacing: -0.02em;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
+}
+
+.hero-headline-styled .scramble-text {
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.35);
+}
+
+/* =========================================================
+   ANIMATION & INTERACTIVITY STYLES
+   ========================================================= */
+
+/* Spotlight Beam Effect on Cards */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+}
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle 350px at var(--mouse-x) var(--mouse-y), rgba(226, 232, 240, 0.08), transparent 80%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+.spotlight-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(circle 200px at var(--mouse-x) var(--mouse-y), rgba(226, 232, 240, 0.5), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.spotlight-card:hover::after {
+  opacity: 1;
+}
+
+/* =========================================================
+   COMPLETE MOBILE OPTIMIZATION
+   ========================================================= */
+@media (max-width: 767px) {
+  body, html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+  
+  .scramble-text {
+    min-width: 100% !important;
+    word-wrap: break-word;
+  }
+
+  .spotlight-card {
+    height: auto !important;
+    min-height: 280px;
+    padding: 1.5rem !important;
+  }
+
+  h1, .hero-heading {
+    font-size: 2.25rem !important; 
+    line-height: 1.08 !important;
+    margin-bottom: 1.25rem !important;
+  }
+
+  p, .body-text {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+  }
+
+  section {
+    padding-top: 3.5rem !important;
+    padding-bottom: 3.5rem !important;
+  }
+
+  button, a, .nav-link, .btn {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    padding: 0.75rem 1rem !important;
+  }
+}
