@@ -2,7 +2,7 @@
 <html lang="en" class="dark scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Loyalty Ink | Custom Tattoos, Flash & Body Piercings in Dover-Foxcroft, ME</title>
     <meta name="description" content="Loyalty Ink — Premier custom tattoo, flash art, cover-up, and body piercing studio in Dover-Foxcroft, ME. Owned & operated by Cory Nash." />
     
@@ -69,35 +69,35 @@
       x-transition:leave="transition ease-in duration-200"
       x-transition:leave-start="opacity-100 scale-100"
       x-transition:leave-end="opacity-0 scale-95"
-      class="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12 bg-noir/95 backdrop-blur-2xl"
+      class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-noir/95 backdrop-blur-2xl"
       style="display: none;"
     >
-      <button @click="lightboxOpen = false" class="absolute top-8 right-8 text-white hover:text-[var(--accent)] transition-colors z-10 p-2">
-        <i data-lucide="x" class="w-8 h-8"></i>
+      <button @click="lightboxOpen = false" class="absolute top-4 right-4 sm:top-8 sm:right-8 text-white hover:text-[var(--accent)] transition-colors z-10 p-3">
+        <i data-lucide="x" class="w-7 h-7"></i>
       </button>
-      <img :src="lightboxImage" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl" alt="Gallery Close Up">
+      <img :src="lightboxImage" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl" alt="Gallery Close Up">
     </div>
 
     <!-- ============ NAVIGATION ============ -->
     <header
       id="site-header"
-      :class="{ 'bg-noir/90 backdrop-blur-md border-b border-white/10 py-3 shadow-2xl': scrolled, 'bg-transparent py-6': !scrolled }"
+      :class="{ 'bg-noir/95 backdrop-blur-lg border-b border-white/10 py-3 shadow-2xl': scrolled, 'bg-transparent py-4 sm:py-6': !scrolled }"
       class="fixed top-0 left-0 w-full z-40 transition-all duration-500"
     >
-      <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         <!-- Brand / Logo -->
-        <a href="#home" class="flex items-center gap-3 group">
-          <div class="w-10 h-10 rounded-full border border-[var(--accent)]/50 bg-surface flex items-center justify-center group-hover:border-[var(--accent)] group-hover:shadow-[0_0_15px_var(--accent-glow)] transition-all duration-300">
-            <span class="font-headline text-[var(--accent)] text-lg">L</span>
+        <a href="#home" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-[var(--accent)]/50 bg-surface flex items-center justify-center group-hover:border-[var(--accent)] group-hover:shadow-[0_0_15px_var(--accent-glow)] transition-all duration-300">
+            <span class="font-headline text-[var(--accent)] text-base sm:text-lg">L</span>
           </div>
           <div>
-            <span class="font-serif font-bold text-lg md:text-xl text-white tracking-wider block leading-none">LOYALTY INK</span>
-            <span class="text-[9px] uppercase tracking-[0.3em] text-[var(--accent)]/90 block mt-1 font-semibold">Tattoos &amp; Body Piercing</span>
+            <span class="font-serif font-bold text-base sm:text-lg md:text-xl text-white tracking-wider block leading-none">LOYALTY INK</span>
+            <span class="text-[8px] sm:text-[9px] uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[var(--accent)]/90 block mt-1 font-semibold">Tattoos &amp; Body Piercing</span>
           </div>
         </a>
 
         <!-- Desktop Menu -->
-        <nav class="hidden md:flex items-center gap-8">
+        <nav class="hidden md:flex items-center gap-6 lg:gap-8">
           <a href="#studio" class="text-xs uppercase tracking-[0.2em] font-medium text-gray-300 hover:text-[var(--accent)] transition-colors duration-300">Studio</a>
           <a href="#events" class="text-xs uppercase tracking-[0.2em] font-medium text-gray-300 hover:text-[var(--accent)] transition-colors duration-300">Specials</a>
           <a href="#gallery" class="text-xs uppercase tracking-[0.2em] font-medium text-gray-300 hover:text-[var(--accent)] transition-colors duration-300">Portfolio</a>
@@ -110,7 +110,7 @@
         <div class="hidden md:flex items-center gap-4">
           <button
             @click="openModal()"
-            class="magnetic-btn relative inline-flex items-center justify-center px-6 py-2.5 text-xs font-bold uppercase tracking-[0.2em] text-noir bg-[var(--accent)] rounded-full overflow-hidden shadow-[0_0_20px_var(--accent-glow)] transition-all duration-300 will-change-transform"
+            class="magnetic-btn relative inline-flex items-center justify-center px-5 lg:px-6 py-2.5 text-xs font-bold uppercase tracking-[0.2em] text-noir bg-[var(--accent)] rounded-full overflow-hidden shadow-[0_0_20px_var(--accent-glow)] transition-all duration-300 will-change-transform"
           >
             <span class="relative flex items-center gap-2">
               <span>Book Appointment</span>
@@ -119,10 +119,11 @@
           </button>
         </div>
 
-        <!-- Mobile Menu Toggle -->
+        <!-- Mobile Menu Toggle Button -->
         <button
           @click="mobileMenuOpen = !mobileMenuOpen"
-          class="md:hidden text-white p-2 focus:outline-none"
+          class="md:hidden text-white p-2.5 rounded-lg border border-white/10 bg-card/60 focus:outline-none"
+          aria-label="Toggle navigation menu"
         >
           <i x-show="!mobileMenuOpen" data-lucide="menu" class="w-6 h-6 text-[var(--accent)]"></i>
           <i x-show="mobileMenuOpen" data-lucide="x" class="w-6 h-6 text-[var(--accent)]"></i>
@@ -130,14 +131,23 @@
       </div>
 
       <!-- Mobile Dropdown Menu -->
-      <div x-show="mobileMenuOpen" x-transition class="md:hidden bg-noir/95 backdrop-blur-xl border-b border-white/10 px-6 py-8 flex flex-col gap-6">
-        <a @click="mobileMenuOpen = false" href="#studio" class="text-sm uppercase tracking-[0.2em] text-gray-200 hover:text-[var(--accent)]">Studio</a>
-        <a @click="mobileMenuOpen = false" href="#events" class="text-sm uppercase tracking-[0.2em] text-gray-200 hover:text-[var(--accent)]">Specials</a>
-        <a @click="mobileMenuOpen = false" href="#gallery" class="text-sm uppercase tracking-[0.2em] text-gray-200 hover:text-[var(--accent)]">Portfolio</a>
-        <a @click="mobileMenuOpen = false" href="#styles" class="text-sm uppercase tracking-[0.2em] text-gray-200 hover:text-[var(--accent)]">Services</a>
-        <a @click="mobileMenuOpen = false" href="#artist" class="text-sm uppercase tracking-[0.2em] text-gray-200 hover:text-[var(--accent)]">Owner &amp; Artist</a>
-        <a @click="mobileMenuOpen = false" href="#visit" class="text-sm uppercase tracking-[0.2em] text-gray-200 hover:text-[var(--accent)]">Location</a>
-        <button @click="mobileMenuOpen = false; openModal()" class="w-full py-3 text-xs font-bold uppercase tracking-[0.2em] bg-[var(--accent)] text-noir rounded-full shadow-[0_0_20px_var(--accent-glow)]">
+      <div 
+        x-show="mobileMenuOpen" 
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 -translate-y-4"
+        x-transition:enter-end="opacity-100 translate-y-0"
+        x-transition:leave="transition ease-in duration-200"
+        x-transition:leave-start="opacity-100 translate-y-0"
+        x-transition:leave-end="opacity-0 -translate-y-4"
+        class="md:hidden bg-noir/98 backdrop-blur-2xl border-b border-white/10 px-6 py-8 flex flex-col gap-5 shadow-2xl"
+      >
+        <a @click="mobileMenuOpen = false" href="#studio" class="text-sm uppercase tracking-[0.2em] text-gray-200 hover:text-[var(--accent)] py-1">Studio</a>
+        <a @click="mobileMenuOpen = false" href="#events" class="text-sm uppercase tracking-[0.2em] text-gray-200 hover:text-[var(--accent)] py-1">Specials &amp; Walk-ins</a>
+        <a @click="mobileMenuOpen = false" href="#gallery" class="text-sm uppercase tracking-[0.2em] text-gray-200 hover:text-[var(--accent)] py-1">Portfolio</a>
+        <a @click="mobileMenuOpen = false" href="#styles" class="text-sm uppercase tracking-[0.2em] text-gray-200 hover:text-[var(--accent)] py-1">Services</a>
+        <a @click="mobileMenuOpen = false" href="#artist" class="text-sm uppercase tracking-[0.2em] text-gray-200 hover:text-[var(--accent)] py-1">Cory Nash (Artist)</a>
+        <a @click="mobileMenuOpen = false" href="#visit" class="text-sm uppercase tracking-[0.2em] text-gray-200 hover:text-[var(--accent)] py-1">Location &amp; Contact</a>
+        <button @click="mobileMenuOpen = false; openModal()" class="w-full py-3.5 mt-2 text-xs font-bold uppercase tracking-[0.2em] bg-[var(--accent)] text-noir rounded-full shadow-[0_0_20px_var(--accent-glow)]">
           Book Appointment
         </button>
       </div>
@@ -145,56 +155,57 @@
 
     <main id="main">
       <!-- ============ HERO SECTION ============ -->
-      <section id="home" class="relative min-h-screen flex items-center justify-start pt-32 pb-24 md:pt-40 md:pb-28 overflow-hidden">
+      <section id="home" class="relative min-h-[90vh] md:min-h-screen flex items-center justify-start pt-28 pb-16 sm:pt-36 sm:pb-24 md:pt-40 md:pb-28 overflow-hidden">
         <!-- Parallax Background -->
         <div class="absolute inset-0 z-0 hero-bg origin-center">
           <img
             src="https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?auto=format&fit=crop&w=1920&q=80"
             alt="Loyalty Ink Background"
-            class="w-full h-full object-cover object-center filter brightness-[0.45] contrast-110 grayscale"
+            class="w-full h-full object-cover object-center filter brightness-[0.4] contrast-110 grayscale"
           />
-          <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-55 mix-blend-screen grayscale">
+          <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-screen grayscale">
             <source src="https://assets.mixkit.co/videos/396/396-720.mp4" type="video/mp4" />
           </video>
-          <div class="absolute inset-0 bg-gradient-to-t from-noir via-noir/60 to-transparent"></div>
-          <div class="absolute inset-0 bg-gradient-to-r from-noir via-noir/40 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-noir via-noir/70 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-noir via-noir/50 to-transparent"></div>
         </div>
 
-        <!-- Hero Content -->
-        <div class="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 w-full mt-10 md:mt-16">
+        <!-- Hero Content (Mobile Optimised Spacing & Flex) -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 w-full mt-6 sm:mt-12 md:mt-16">
           <div class="max-w-3xl lg:max-w-4xl">
             
             <!-- Category Tag line -->
-            <div class="reveal-item flex items-center gap-3 mb-5 md:mb-6">
-              <span class="h-[1px] w-10 bg-[var(--accent)] shadow-[0_0_8px_var(--accent-glow)]"></span>
-              <span class="text-[11px] sm:text-xs uppercase tracking-[0.3em] font-semibold text-[var(--accent)]">Dover-Foxcroft, Maine &middot; Cory Nash</span>
+            <div class="reveal-item flex items-center gap-2.5 sm:gap-3 mb-4 sm:mb-6">
+              <span class="h-[1px] w-6 sm:w-10 bg-[var(--accent)] shadow-[0_0_8px_var(--accent-glow)]"></span>
+              <span class="text-[10px] sm:text-xs uppercase tracking-[0.22em] sm:tracking-[0.3em] font-semibold text-[var(--accent)]">Dover-Foxcroft, ME &middot; Cory Nash</span>
             </div>
 
-            <!-- Recalibrated Typography Headline -->
-            <h1 class="hero-headline-styled font-syne text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white leading-[1.02] tracking-tight mb-6 sm:mb-8">
+            <!-- Recalibrated Responsive Typography Headline -->
+            <h1 class="hero-headline-styled font-syne text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white leading-[1.05] sm:leading-[1.02] tracking-tight mb-5 sm:mb-8">
               <span class="block tracking-wider uppercase text-white drop-shadow-lg">EXCEPTIONAL</span>
-              <span class="scramble-text font-cormorant italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-slate-100 via-white to-slate-400 block my-1 sm:my-2 pl-1 capitalize text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
+              <span class="scramble-text font-cormorant italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-slate-100 via-white to-slate-400 block my-1 sm:my-2 capitalize text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
                 Loyalty Ink.
               </span>
               <span class="block tracking-wider uppercase text-white/95 drop-shadow-lg">ENDURING LEGACY</span>
             </h1>
 
-            <p class="reveal-item text-gray-300 text-sm sm:text-base md:text-lg max-w-xl sm:max-w-2xl font-light leading-relaxed mb-8 sm:mb-10 drop-shadow">
-              Dover-Foxcroft’s premier destination for custom tattoos, flash designs, cover-ups, and professional body piercings by artist Cory Nash.
+            <p class="reveal-item text-gray-300 text-xs sm:text-base md:text-lg max-w-xl sm:max-w-2xl font-light leading-relaxed mb-6 sm:mb-10 drop-shadow">
+              Dover-Foxcroft’s premier studio for custom tattoos, flash art, cover-ups, and professional body piercings by artist Cory Nash.
             </p>
 
-            <div class="reveal-item flex flex-wrap items-center gap-4 sm:gap-6">
+            <!-- Responsive Mobile Action Buttons -->
+            <div class="reveal-item flex flex-col xs:flex-row items-stretch xs:items-center gap-3.5 sm:gap-6">
               <button
                 @click="openModal()"
-                class="magnetic-btn px-7 sm:px-9 py-3.5 sm:py-4 bg-[var(--accent)] text-noir text-xs font-bold uppercase tracking-[0.25em] rounded-full hover:bg-white hover:shadow-[0_0_30px_var(--accent-glow)] transition-all duration-300"
+                class="magnetic-btn w-full xs:w-auto text-center px-7 sm:px-9 py-3.5 sm:py-4 bg-[var(--accent)] text-noir text-xs font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] rounded-full hover:bg-white hover:shadow-[0_0_30px_var(--accent-glow)] transition-all duration-300"
               >
                 Schedule Session
               </button>
               <a
                 href="#events"
-                class="magnetic-btn px-7 sm:px-9 py-3.5 sm:py-4 border border-gray-700 hover:border-[var(--accent)] text-gray-300 hover:text-white text-xs font-bold uppercase tracking-[0.25em] rounded-full backdrop-blur-sm transition-all duration-300"
+                class="magnetic-btn w-full xs:w-auto text-center px-7 sm:px-9 py-3.5 sm:py-4 border border-gray-700 hover:border-[var(--accent)] text-gray-300 hover:text-white text-xs font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] rounded-full backdrop-blur-sm transition-all duration-300"
               >
-                Flash Specials &amp; Walk-ins
+                Specials &amp; Walk-ins
               </a>
             </div>
           </div>
@@ -202,45 +213,45 @@
       </section>
 
       <!-- ============ SPECIAL EVENTS / WALK-IN WEDNESDAYS ============ -->
-      <section id="events" class="py-20 bg-surface border-t border-white/5 relative z-10 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6">
-          <div class="grid lg:grid-cols-12 gap-12 items-center">
+      <section id="events" class="py-14 sm:py-20 bg-surface border-t border-white/5 relative z-10 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+          <div class="grid lg:grid-cols-12 gap-8 sm:gap-12 items-center">
             
             <div class="lg:col-span-6 reveal-item">
-              <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-card border border-[var(--accent)]/30 mb-4">
-                <i data-lucide="zap" class="w-4 h-4 text-[var(--accent)]"></i>
-                <span class="text-xs font-bold text-white tracking-widest uppercase">Weekly Specials &amp; Events</span>
+              <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-card border border-[var(--accent)]/30 mb-4">
+                <i data-lucide="zap" class="w-3.5 h-3.5 text-[var(--accent)]"></i>
+                <span class="text-[10px] sm:text-xs font-bold text-white tracking-widest uppercase">Weekly Specials &amp; Events</span>
               </div>
-              <h2 class="font-serif text-3xl sm:text-5xl font-semibold text-white mb-6">
-                Walk-In Wednesdays <br />&amp; <em class="text-[var(--accent)] italic font-normal">Flash Tattoo Specials</em>
+              <h2 class="font-serif text-2xl sm:text-4xl md:text-5xl font-semibold text-white mb-4 sm:mb-6 leading-tight">
+                Walk-In Wednesdays <br />&amp; <em class="text-[var(--accent)] italic font-normal">Flash Specials</em>
               </h2>
-              <p class="text-gray-300 text-sm sm:text-base font-light leading-relaxed mb-8">
+              <p class="text-gray-300 text-xs sm:text-base font-light leading-relaxed mb-6 sm:mb-8">
                 Join us every week for <strong>Walk-In Wednesdays</strong>! Cory Nash hosts regular flash tattoo events featuring unique custom designs typically priced between <strong>$50 and $100</strong>.
               </p>
 
-              <div class="grid grid-cols-2 gap-4">
-                <div class="bg-card/80 border border-white/10 p-5 rounded-2xl">
-                  <span class="text-xs text-[var(--accent)] uppercase font-bold tracking-wider block mb-1">Every Wednesday</span>
-                  <h3 class="text-white font-serif font-bold text-lg">Walk-In Days</h3>
+              <div class="grid grid-cols-1 xs:grid-cols-2 gap-3.5 sm:gap-4">
+                <div class="bg-card/80 border border-white/10 p-4 sm:p-5 rounded-2xl">
+                  <span class="text-[10px] sm:text-xs text-[var(--accent)] uppercase font-bold tracking-wider block mb-1">Every Wednesday</span>
+                  <h3 class="text-white font-serif font-bold text-base sm:text-lg">Walk-In Days</h3>
                   <p class="text-xs text-gray-400 mt-1 font-light">No appointment needed for select flash &amp; piercings.</p>
                 </div>
-                <div class="bg-card/80 border border-white/10 p-5 rounded-2xl">
-                  <span class="text-xs text-[var(--accent)] uppercase font-bold tracking-wider block mb-1">Flash Art</span>
-                  <h3 class="text-white font-serif font-bold text-lg">$50 – $100 Specials</h3>
+                <div class="bg-card/80 border border-white/10 p-4 sm:p-5 rounded-2xl">
+                  <span class="text-[10px] sm:text-xs text-[var(--accent)] uppercase font-bold tracking-wider block mb-1">Flash Art</span>
+                  <h3 class="text-white font-serif font-bold text-base sm:text-lg">$50 – $100 Specials</h3>
                   <p class="text-xs text-gray-400 mt-1 font-light">Periodic flash sheets with high-impact artwork.</p>
                 </div>
               </div>
             </div>
 
-            <div class="lg:col-span-6 relative reveal-item">
+            <div class="lg:col-span-6 relative reveal-item mt-4 lg:mt-0">
               <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative">
                 <img
                   src="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?auto=format&fit=crop&w=1200&q=80"
                   alt="Loyalty Ink Flash Art"
-                  class="w-full h-[420px] object-cover filter contrast-125 grayscale hover:grayscale-0 transition-all duration-700"
+                  class="w-full h-[280px] sm:h-[420px] object-cover filter contrast-125 grayscale hover:grayscale-0 transition-all duration-700"
                 />
-                <div class="absolute bottom-6 left-6 right-6 bg-noir/80 backdrop-blur-md p-6 rounded-xl border border-white/10">
-                  <h4 class="font-serif text-lg text-white font-semibold">Stay Updated on Facebook</h4>
+                <div class="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 bg-noir/85 backdrop-blur-md p-4 sm:p-6 rounded-xl border border-white/10">
+                  <h4 class="font-serif text-base sm:text-lg text-white font-semibold">Stay Updated on Facebook</h4>
                   <p class="text-xs text-gray-300 mt-1 font-light">Follow the official Loyalty Ink Facebook page to view upcoming flash sheets and event dates.</p>
                   <a
                     href="https://share.google/XjAw1teXtXwjtb5cU"
@@ -260,45 +271,45 @@
       </section>
 
       <!-- ============ STUDIO INTRO ============ -->
-      <section id="studio" class="py-28 relative bg-noir border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-          <div class="grid lg:grid-cols-12 gap-16 items-center">
+      <section id="studio" class="py-16 sm:py-28 relative bg-noir border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+          <div class="grid lg:grid-cols-12 gap-10 sm:gap-16 items-center">
             <div class="lg:col-span-6 reveal-item">
-              <span class="text-xs font-bold uppercase tracking-[0.3em] text-[var(--accent)] block mb-4">About Loyalty Ink</span>
-              <h2 class="font-serif text-3xl sm:text-5xl font-semibold text-white leading-tight mb-8">
+              <span class="text-xs font-bold uppercase tracking-[0.3em] text-[var(--accent)] block mb-3 sm:mb-4">About Loyalty Ink</span>
+              <h2 class="font-serif text-2xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight mb-6 sm:mb-8">
                 Crafted with <em class="text-[var(--accent)] italic font-normal">integrity</em> &amp; precision.
               </h2>
-              <p class="text-gray-400 text-base font-light leading-relaxed mb-10">
+              <p class="text-gray-400 text-sm sm:text-base font-light leading-relaxed mb-8 sm:mb-10">
                 Located at <strong class="text-white font-medium">1116 Guilford Rd (West Main St)</strong> in Dover-Foxcroft, ME, <strong class="text-white font-medium">Loyalty Ink</strong> provides top-quality custom tattoos, flash art, tattoo cover-ups, and body piercings in a clean, professional, and welcoming environment.
               </p>
 
               <!-- Pillars -->
-              <div class="space-y-6 border-t border-white/10 pt-8">
-                <div class="flex gap-5 reveal-item">
-                  <div class="w-10 h-10 rounded-full bg-card border border-[var(--accent)]/30 flex items-center justify-center shrink-0 text-[var(--accent)] font-serif font-bold text-sm">01</div>
+              <div class="space-y-5 sm:space-y-6 border-t border-white/10 pt-6 sm:pt-8">
+                <div class="flex gap-4 sm:gap-5 reveal-item">
+                  <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-card border border-[var(--accent)]/30 flex items-center justify-center shrink-0 text-[var(--accent)] font-serif font-bold text-xs sm:text-sm">01</div>
                   <div>
-                    <h3 class="font-serif text-lg font-medium text-white mb-1">Custom Tattooing &amp; Cover-Ups</h3>
-                    <p class="text-sm text-gray-400 font-light">Personalized design sessions to create new pieces or seamlessly transform existing ink.</p>
+                    <h3 class="font-serif text-base sm:text-lg font-medium text-white mb-1">Custom Tattooing &amp; Cover-Ups</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 font-light">Personalized design sessions to create new pieces or seamlessly transform existing ink.</p>
                   </div>
                 </div>
-                <div class="flex gap-5 reveal-item">
-                  <div class="w-10 h-10 rounded-full bg-card border border-[var(--accent)]/30 flex items-center justify-center shrink-0 text-[var(--accent)] font-serif font-bold text-sm">02</div>
+                <div class="flex gap-4 sm:gap-5 reveal-item">
+                  <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-card border border-[var(--accent)]/30 flex items-center justify-center shrink-0 text-[var(--accent)] font-serif font-bold text-xs sm:text-sm">02</div>
                   <div>
-                    <h3 class="font-serif text-lg font-medium text-white mb-1">Professional Body Piercing</h3>
-                    <p class="text-sm text-gray-400 font-light">Sterile, precise body piercing services adhering to the highest safety guidelines.</p>
+                    <h3 class="font-serif text-base sm:text-lg font-medium text-white mb-1">Professional Body Piercing</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 font-light">Sterile, precise body piercing services adhering to the highest safety guidelines.</p>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- Dark Mask Unveil Images -->
-            <div class="lg:col-span-6 relative grid grid-cols-2 gap-4">
-              <div class="mask-reveal relative overflow-hidden rounded-2xl border border-white/10 mt-12">
-                <img src="https://images.unsplash.com/photo-1546432635-c2476e6a2a25?auto=format&fit=crop&w=800&q=80" alt="Tattoo equipment" class="w-full h-80 object-cover filter grayscale contrast-125" />
+            <div class="lg:col-span-6 relative grid grid-cols-2 gap-3 sm:gap-4">
+              <div class="mask-reveal relative overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 mt-6 sm:mt-12">
+                <img src="https://images.unsplash.com/photo-1546432635-c2476e6a2a25?auto=format&fit=crop&w=800&q=80" alt="Tattoo equipment" class="w-full h-48 sm:h-80 object-cover filter grayscale contrast-125" />
                 <div class="mask-overlay absolute inset-0 bg-noir origin-bottom"></div>
               </div>
-              <div class="mask-reveal relative overflow-hidden rounded-2xl border border-white/10 mb-12">
-                <img src="https://images.unsplash.com/photo-1513078094721-e7b6e0394a6a?auto=format&fit=crop&w=800&q=80" alt="Artist at work" class="w-full h-80 object-cover filter grayscale contrast-125" />
+              <div class="mask-reveal relative overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 mb-6 sm:mb-12">
+                <img src="https://images.unsplash.com/photo-1513078094721-e7b6e0394a6a?auto=format&fit=crop&w=800&q=80" alt="Artist at work" class="w-full h-48 sm:h-80 object-cover filter grayscale contrast-125" />
                 <div class="mask-overlay absolute inset-0 bg-noir origin-top"></div>
               </div>
             </div>
@@ -307,12 +318,12 @@
       </section>
 
       <!-- ============ PORTFOLIO GALLERY ============ -->
-      <section id="gallery" class="py-28 bg-surface relative border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-          <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 reveal-item">
+      <section id="gallery" class="py-16 sm:py-28 bg-surface relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 sm:gap-8 mb-10 sm:mb-16 reveal-item">
             <div>
-              <span class="text-xs font-bold uppercase tracking-[0.3em] text-[var(--accent)] block mb-3">Portfolio Showcase</span>
-              <h2 class="font-serif text-3xl sm:text-5xl font-semibold text-white">
+              <span class="text-xs font-bold uppercase tracking-[0.3em] text-[var(--accent)] block mb-2 sm:mb-3">Portfolio Showcase</span>
+              <h2 class="font-serif text-2xl sm:text-4xl md:text-5xl font-semibold text-white">
                 Featured <em class="text-[var(--accent)] italic font-normal">Artwork &amp; Piercings</em>
               </h2>
             </div>
@@ -322,15 +333,15 @@
                 <button
                   @click="activeCategory = cat"
                   :class="activeCategory === cat ? 'bg-[var(--accent)] text-noir border-[var(--accent)]' : 'bg-card/60 text-gray-400 border-white/10 hover:border-[var(--accent)]/40 hover:text-white'"
-                  class="px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-[0.15em] border transition-all duration-300"
+                  class="px-4 sm:px-5 py-2 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] border transition-all duration-300"
                   x-text="cat === 'piercing' ? 'Body Piercing' : cat.charAt(0).toUpperCase() + cat.slice(1)"
                 ></button>
               </template>
             </div>
           </div>
 
-          <!-- Interactive Grid -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+          <!-- Interactive Responsive Grid -->
+          <div class="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 relative">
             <template x-for="(item, index) in gallery" :key="index">
               <div 
                 x-show="activeCategory === 'all' || activeCategory === item.cat"
@@ -341,96 +352,94 @@
                 x-transition:leave-start="opacity-100 scale-100"
                 x-transition:leave-end="opacity-0 scale-90"
                 @click="openLightbox(item.img)"
-                class="group relative rounded-2xl overflow-hidden border border-white/10 bg-card aspect-[3/4] cursor-pointer will-change-transform"
+                class="group relative rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 bg-card aspect-[3/4] cursor-pointer will-change-transform"
               >
                 <img :src="item.img" :alt="item.title" class="w-full h-full object-cover filter contrast-110 grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" />
                 <div class="absolute inset-0 bg-gradient-to-t from-noir via-noir/40 to-transparent opacity-90 group-hover:opacity-100 transition-opacity"></div>
-                <div class="absolute bottom-0 left-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  <span class="text-[10px] uppercase tracking-[0.25em] text-[var(--accent)] font-bold block mb-1" x-text="item.catName"></span>
-                  <h3 class="font-serif text-lg font-medium text-white" x-text="item.title"></h3>
+                <div class="absolute bottom-0 left-0 p-4 sm:p-6 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                  <span class="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-[var(--accent)] font-bold block mb-1" x-text="item.catName"></span>
+                  <h3 class="font-serif text-sm sm:text-lg font-medium text-white" x-text="item.title"></h3>
                 </div>
-                <!-- Hover Beam Reveal -->
-                <div class="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-500 mix-blend-overlay bg-[radial-gradient(circle_at_center,rgba(226,232,240,0.4)_0%,transparent_70%)]"></div>
               </div>
             </template>
           </div>
         </div>
       </section>
 
-      <!-- ============ SERVICES & SPECIALTIES (3D TILT & SPOTLIGHT) ============ -->
-      <section id="styles" class="py-28 bg-noir relative border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-          <div class="max-w-2xl mb-16 reveal-item">
-            <span class="text-xs font-bold uppercase tracking-[0.3em] text-[var(--accent)] block mb-3">Our Offerings</span>
-            <h2 class="font-serif text-3xl sm:text-5xl font-semibold text-white mb-4">
+      <!-- ============ SERVICES & SPECIALTIES (SPOTLIGHT) ============ -->
+      <section id="styles" class="py-16 sm:py-28 bg-noir relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+          <div class="max-w-2xl mb-10 sm:mb-16 reveal-item">
+            <span class="text-xs font-bold uppercase tracking-[0.3em] text-[var(--accent)] block mb-2 sm:mb-3">Our Offerings</span>
+            <h2 class="font-serif text-2xl sm:text-4xl md:text-5xl font-semibold text-white mb-3 sm:mb-4">
               Services &amp; <em class="text-[var(--accent)] italic font-normal">Specialties</em>
             </h2>
           </div>
 
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Cards -->
-            <div data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2" class="spotlight-card reveal-item bg-card border border-white/10 rounded-2xl p-8 transition-all duration-500 group flex flex-col justify-between h-[300px]">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
+            <!-- Cards (Responsive auto height on mobile) -->
+            <div data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2" class="spotlight-card reveal-item bg-card border border-white/10 rounded-2xl p-6 sm:p-8 transition-all duration-500 group flex flex-col justify-between min-h-[250px] sm:h-[300px]">
               <div class="relative z-10">
-                <span class="text-xs font-serif font-bold text-[var(--accent)] tracking-widest block mb-4">01</span>
-                <h3 class="font-serif text-2xl font-medium text-white mb-3">Custom Tattoos</h3>
-                <p class="text-gray-400 text-sm font-light leading-relaxed">Bespoke artwork engineered specifically for your body and placement preferences.</p>
+                <span class="text-xs font-serif font-bold text-[var(--accent)] tracking-widest block mb-3 sm:mb-4">01</span>
+                <h3 class="font-serif text-xl sm:text-2xl font-medium text-white mb-2 sm:mb-3">Custom Tattoos</h3>
+                <p class="text-gray-400 text-xs sm:text-sm font-light leading-relaxed">Bespoke artwork engineered specifically for your body and placement preferences.</p>
               </div>
-              <button @click="openModal('Custom Tattoo')" class="relative z-10 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)] hover:text-white transition-colors mt-6">
+              <button @click="openModal('Custom Tattoo')" class="relative z-10 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)] hover:text-white transition-colors mt-5 sm:mt-6">
                 Inquire Service <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </button>
             </div>
 
-            <div data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2" class="spotlight-card reveal-item bg-card border border-white/10 rounded-2xl p-8 transition-all duration-500 group flex flex-col justify-between h-[300px]" style="transition-delay: 100ms;">
+            <div data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2" class="spotlight-card reveal-item bg-card border border-white/10 rounded-2xl p-6 sm:p-8 transition-all duration-500 group flex flex-col justify-between min-h-[250px] sm:h-[300px]">
               <div class="relative z-10">
-                <span class="text-xs font-serif font-bold text-[var(--accent)] tracking-widest block mb-4">02</span>
-                <h3 class="font-serif text-2xl font-medium text-white mb-3">Flash Tattoos</h3>
-                <p class="text-gray-400 text-sm font-light leading-relaxed">Exclusive pre-designed flash sheets, featuring regular $50-$100 promotional specials.</p>
+                <span class="text-xs font-serif font-bold text-[var(--accent)] tracking-widest block mb-3 sm:mb-4">02</span>
+                <h3 class="font-serif text-xl sm:text-2xl font-medium text-white mb-2 sm:mb-3">Flash Tattoos</h3>
+                <p class="text-gray-400 text-xs sm:text-sm font-light leading-relaxed">Exclusive pre-designed flash sheets, featuring regular $50-$100 promotional specials.</p>
               </div>
-              <button @click="openModal('Flash Tattoo')" class="relative z-10 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)] hover:text-white transition-colors mt-6">
+              <button @click="openModal('Flash Tattoo')" class="relative z-10 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)] hover:text-white transition-colors mt-5 sm:mt-6">
                 Inquire Service <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </button>
             </div>
 
-            <div data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2" class="spotlight-card reveal-item bg-card border border-white/10 rounded-2xl p-8 transition-all duration-500 group flex flex-col justify-between h-[300px]" style="transition-delay: 200ms;">
+            <div data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2" class="spotlight-card reveal-item bg-card border border-white/10 rounded-2xl p-6 sm:p-8 transition-all duration-500 group flex flex-col justify-between min-h-[250px] sm:h-[300px]">
               <div class="relative z-10">
-                <span class="text-xs font-serif font-bold text-[var(--accent)] tracking-widest block mb-4">03</span>
-                <h3 class="font-serif text-2xl font-medium text-white mb-3">Cover-Up Tattooing</h3>
-                <p class="text-gray-400 text-sm font-light leading-relaxed">Expert transformation and complete coverage of faded or unwanted previous tattoos.</p>
+                <span class="text-xs font-serif font-bold text-[var(--accent)] tracking-widest block mb-3 sm:mb-4">03</span>
+                <h3 class="font-serif text-xl sm:text-2xl font-medium text-white mb-2 sm:mb-3">Cover-Up Tattooing</h3>
+                <p class="text-gray-400 text-xs sm:text-sm font-light leading-relaxed">Expert transformation and complete coverage of faded or unwanted previous tattoos.</p>
               </div>
-              <button @click="openModal('Cover-Up Tattooing')" class="relative z-10 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)] hover:text-white transition-colors mt-6">
+              <button @click="openModal('Cover-Up Tattooing')" class="relative z-10 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)] hover:text-white transition-colors mt-5 sm:mt-6">
                 Inquire Service <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </button>
             </div>
 
-            <div data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2" class="spotlight-card reveal-item bg-card border border-white/10 rounded-2xl p-8 transition-all duration-500 group flex flex-col justify-between h-[300px]" style="transition-delay: 300ms;">
+            <div data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2" class="spotlight-card reveal-item bg-card border border-white/10 rounded-2xl p-6 sm:p-8 transition-all duration-500 group flex flex-col justify-between min-h-[250px] sm:h-[300px]">
               <div class="relative z-10">
-                <span class="text-xs font-serif font-bold text-[var(--accent)] tracking-widest block mb-4">04</span>
-                <h3 class="font-serif text-2xl font-medium text-white mb-3">Body Piercings</h3>
-                <p class="text-gray-400 text-sm font-light leading-relaxed">Professional body piercing performed with hospital-grade sterilization and top jewelry.</p>
+                <span class="text-xs font-serif font-bold text-[var(--accent)] tracking-widest block mb-3 sm:mb-4">04</span>
+                <h3 class="font-serif text-xl sm:text-2xl font-medium text-white mb-2 sm:mb-3">Body Piercings</h3>
+                <p class="text-gray-400 text-xs sm:text-sm font-light leading-relaxed">Professional body piercing performed with hospital-grade sterilization and top jewelry.</p>
               </div>
-              <button @click="openModal('Body Piercing')" class="relative z-10 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)] hover:text-white transition-colors mt-6">
+              <button @click="openModal('Body Piercing')" class="relative z-10 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)] hover:text-white transition-colors mt-5 sm:mt-6">
                 Inquire Service <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </button>
             </div>
 
-            <div data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2" class="spotlight-card reveal-item bg-card border border-white/10 rounded-2xl p-8 transition-all duration-500 group flex flex-col justify-between h-[300px]" style="transition-delay: 400ms;">
+            <div data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2" class="spotlight-card reveal-item bg-card border border-white/10 rounded-2xl p-6 sm:p-8 transition-all duration-500 group flex flex-col justify-between min-h-[250px] sm:h-[300px]">
               <div class="relative z-10">
-                <span class="text-xs font-serif font-bold text-[var(--accent)] tracking-widest block mb-4">05</span>
-                <h3 class="font-serif text-2xl font-medium text-white mb-3">Walk-In Wednesdays</h3>
-                <p class="text-gray-400 text-sm font-light leading-relaxed">Dedicated weekly walk-in sessions for quick tattoos, flash designs, and piercings.</p>
+                <span class="text-xs font-serif font-bold text-[var(--accent)] tracking-widest block mb-3 sm:mb-4">05</span>
+                <h3 class="font-serif text-xl sm:text-2xl font-medium text-white mb-2 sm:mb-3">Walk-In Wednesdays</h3>
+                <p class="text-gray-400 text-xs sm:text-sm font-light leading-relaxed">Dedicated weekly walk-in sessions for quick tattoos, flash designs, and piercings.</p>
               </div>
-              <button @click="openModal('Walk-In Wednesday')" class="relative z-10 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)] hover:text-white transition-colors mt-6">
+              <button @click="openModal('Walk-In Wednesday')" class="relative z-10 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)] hover:text-white transition-colors mt-5 sm:mt-6">
                 Inquire Service <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </button>
             </div>
 
-            <div data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2" class="spotlight-card reveal-item bg-card border border-white/10 rounded-2xl p-8 transition-all duration-500 group flex flex-col justify-between h-[300px]" style="transition-delay: 500ms;">
+            <div data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2" class="spotlight-card reveal-item bg-card border border-white/10 rounded-2xl p-6 sm:p-8 transition-all duration-500 group flex flex-col justify-between min-h-[250px] sm:h-[300px]">
               <div class="relative z-10">
-                <span class="text-xs font-serif font-bold text-[var(--accent)] tracking-widest block mb-4">06</span>
-                <h3 class="font-serif text-2xl font-medium text-white mb-3">Custom Consultations</h3>
-                <p class="text-gray-400 text-sm font-light leading-relaxed">Direct 1-on-1 design strategy consultations with studio owner Cory Nash.</p>
+                <span class="text-xs font-serif font-bold text-[var(--accent)] tracking-widest block mb-3 sm:mb-4">06</span>
+                <h3 class="font-serif text-xl sm:text-2xl font-medium text-white mb-2 sm:mb-3">Custom Consultations</h3>
+                <p class="text-gray-400 text-xs sm:text-sm font-light leading-relaxed">Direct 1-on-1 design strategy consultations with studio owner Cory Nash.</p>
               </div>
-              <button @click="openModal('Custom Consultation')" class="relative z-10 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)] hover:text-white transition-colors mt-6">
+              <button @click="openModal('Custom Consultation')" class="relative z-10 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)] hover:text-white transition-colors mt-5 sm:mt-6">
                 Inquire Service <i data-lucide="arrow-right" class="w-4 h-4"></i>
               </button>
             </div>
@@ -440,46 +449,46 @@
       </section>
 
       <!-- ============ ARTIST FEATURE ============ -->
-      <section id="artist" class="py-28 bg-surface relative border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-          <div class="grid lg:grid-cols-12 gap-16 items-center">
+      <section id="artist" class="py-16 sm:py-28 bg-surface relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+          <div class="grid lg:grid-cols-12 gap-10 sm:gap-16 items-center">
             
             <div class="lg:col-span-5 relative reveal-item">
               <div class="rounded-2xl overflow-hidden border border-[var(--accent)]/30 shadow-[0_0_50px_var(--accent-glow)]">
                 <img
                   src="https://images.unsplash.com/photo-1542744383-8c330d91f4b1?auto=format&fit=crop&w=800&q=80"
                   alt="Cory Nash - Loyalty Ink Owner & Artist"
-                  class="w-full h-[520px] object-cover filter contrast-125 grayscale hover:grayscale-0 transition-all duration-700"
+                  class="w-full h-[360px] sm:h-[520px] object-cover filter contrast-125 grayscale hover:grayscale-0 transition-all duration-700"
                 />
               </div>
             </div>
 
             <div class="lg:col-span-7 reveal-item">
-              <span class="text-xs font-bold uppercase tracking-[0.3em] text-[var(--accent)] block mb-3">Owner &amp; Lead Artist</span>
-              <h2 class="font-serif text-4xl sm:text-5xl font-bold text-white mb-2">Cory Nash</h2>
-              <p class="text-[var(--accent)]/90 text-xs uppercase tracking-[0.2em] font-semibold mb-6">Tattoo Artist &amp; Piercing Specialist</p>
+              <span class="text-xs font-bold uppercase tracking-[0.3em] text-[var(--accent)] block mb-2 sm:mb-3">Owner &amp; Lead Artist</span>
+              <h2 class="font-serif text-3xl sm:text-5xl font-bold text-white mb-2">Cory Nash</h2>
+              <p class="text-[var(--accent)]/90 text-xs uppercase tracking-[0.2em] font-semibold mb-5 sm:mb-6">Tattoo Artist &amp; Piercing Specialist</p>
               
-              <p class="text-gray-300 text-base font-light leading-relaxed mb-6">
+              <p class="text-gray-300 text-xs sm:text-base font-light leading-relaxed mb-6">
                 Cory Nash is the founder, owner, and primary tattoo artist behind Loyalty Ink. With years of experience serving the Dover-Foxcroft community, Cory brings relentless craftsmanship, pristine line precision, and a warm, customer-focused approach to every tattoo and body piercing session.
               </p>
               
               <div class="flex flex-wrap gap-2 mb-8">
-                <span class="px-4 py-1.5 rounded-full bg-card border border-white/10 text-xs text-gray-300">Custom Tattoos</span>
-                <span class="px-4 py-1.5 rounded-full bg-card border border-white/10 text-xs text-gray-300">Body Piercing</span>
-                <span class="px-4 py-1.5 rounded-full bg-card border border-white/10 text-xs text-gray-300">Flash Specials</span>
-                <span class="px-4 py-1.5 rounded-full bg-card border border-white/10 text-xs text-gray-300">Cover-Ups</span>
+                <span class="px-3.5 py-1.5 rounded-full bg-card border border-white/10 text-xs text-gray-300">Custom Tattoos</span>
+                <span class="px-3.5 py-1.5 rounded-full bg-card border border-white/10 text-xs text-gray-300">Body Piercing</span>
+                <span class="px-3.5 py-1.5 rounded-full bg-card border border-white/10 text-xs text-gray-300">Flash Specials</span>
+                <span class="px-3.5 py-1.5 rounded-full bg-card border border-white/10 text-xs text-gray-300">Cover-Ups</span>
               </div>
 
-              <div class="flex flex-wrap gap-4">
+              <div class="flex flex-col xs:flex-row items-stretch xs:items-center gap-3.5 sm:gap-4">
                 <button
                   @click="openModal()"
-                  class="magnetic-btn px-8 py-4 bg-[var(--accent)] text-noir text-xs font-bold uppercase tracking-[0.25em] rounded-full hover:bg-white hover:shadow-[0_0_30px_var(--accent-glow)] transition-all duration-300"
+                  class="magnetic-btn px-8 py-3.5 bg-[var(--accent)] text-noir text-xs font-bold uppercase tracking-[0.25em] rounded-full hover:bg-white hover:shadow-[0_0_30px_var(--accent-glow)] transition-all duration-300 text-center"
                 >
                   Book with Cory
                 </button>
                 <a
                   href="mailto:corynash57@gmail.com"
-                  class="magnetic-btn px-8 py-4 border border-white/20 text-white text-xs font-bold uppercase tracking-[0.25em] rounded-full hover:border-[var(--accent)] transition-all duration-300"
+                  class="magnetic-btn px-8 py-3.5 border border-white/20 text-white text-xs font-bold uppercase tracking-[0.25em] rounded-full hover:border-[var(--accent)] transition-all duration-300 text-center"
                 >
                   Direct Email
                 </a>
@@ -491,21 +500,21 @@
       </section>
 
       <!-- ============ LOCATION & MAP ============ -->
-      <section id="visit" class="py-28 bg-noir relative border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-6">
-          <div class="grid lg:grid-cols-12 gap-16 items-center">
+      <section id="visit" class="py-16 sm:py-28 bg-noir relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+          <div class="grid lg:grid-cols-12 gap-10 sm:gap-16 items-center">
             
             <div class="lg:col-span-5 reveal-item">
-              <span class="text-xs font-bold uppercase tracking-[0.3em] text-[var(--accent)] block mb-3">Visit Studio</span>
-              <h2 class="font-serif text-3xl sm:text-5xl font-semibold text-white mb-8">
+              <span class="text-xs font-bold uppercase tracking-[0.3em] text-[var(--accent)] block mb-2 sm:mb-3">Visit Studio</span>
+              <h2 class="font-serif text-2xl sm:text-4xl md:text-5xl font-semibold text-white mb-6 sm:mb-8">
                 Location &amp; <em class="text-[var(--accent)] italic font-normal">Contact</em>
               </h2>
 
-              <div class="space-y-6 text-gray-300 text-sm font-light mb-10">
+              <div class="space-y-5 sm:space-y-6 text-gray-300 text-xs sm:text-sm font-light mb-8 sm:mb-10">
                 <div class="flex items-start gap-4">
-                  <i data-lucide="map-pin" class="w-5 h-5 text-[var(--accent)] shrink-0 mt-1"></i>
+                  <i data-lucide="map-pin" class="w-5 h-5 text-[var(--accent)] shrink-0 mt-0.5"></i>
                   <div>
-                    <strong class="text-white font-medium block text-base mb-1">Loyalty Ink</strong>
+                    <strong class="text-white font-medium block text-sm sm:text-base mb-0.5">Loyalty Ink</strong>
                     <p>1116 Guilford Rd (West Main St)<br />Dover-Foxcroft, ME 04426</p>
                   </div>
                 </div>
@@ -513,22 +522,22 @@
                 <div class="flex items-center gap-4">
                   <i data-lucide="phone" class="w-5 h-5 text-[var(--accent)] shrink-0"></i>
                   <div>
-                    <strong class="text-white font-medium block text-xs uppercase tracking-wider mb-0.5">Phone Number</strong>
-                    <a href="tel:+12077177479" class="hover:text-[var(--accent)] transition-colors font-medium text-white text-base">(207) 717-7479</a>
+                    <strong class="text-white font-medium block text-[10px] uppercase tracking-wider mb-0.5">Phone Number</strong>
+                    <a href="tel:+12077177479" class="hover:text-[var(--accent)] transition-colors font-medium text-white text-sm sm:text-base">(207) 717-7479</a>
                   </div>
                 </div>
 
                 <div class="flex items-center gap-4">
                   <i data-lucide="mail" class="w-5 h-5 text-[var(--accent)] shrink-0"></i>
                   <div>
-                    <strong class="text-white font-medium block text-xs uppercase tracking-wider mb-0.5">Email Address</strong>
-                    <a href="mailto:corynash57@gmail.com" class="hover:text-[var(--accent)] transition-colors text-white">corynash57@gmail.com</a>
+                    <strong class="text-white font-medium block text-[10px] uppercase tracking-wider mb-0.5">Email Address</strong>
+                    <a href="mailto:corynash57@gmail.com" class="hover:text-[var(--accent)] transition-colors text-white break-all text-xs sm:text-sm">corynash57@gmail.com</a>
                   </div>
                 </div>
 
-                <div class="flex items-center gap-4 bg-card/80 border border-white/10 p-3 rounded-xl">
-                  <i data-lucide="calendar" class="w-5 h-5 text-[var(--accent)] shrink-0"></i>
-                  <span class="text-xs uppercase tracking-wider text-gray-300 font-semibold">Walk-In Wednesdays &amp; By Appointment</span>
+                <div class="flex items-center gap-3 bg-card/80 border border-white/10 p-3 rounded-xl">
+                  <i data-lucide="calendar" class="w-4 h-4 sm:w-5 sm:h-5 text-[var(--accent)] shrink-0"></i>
+                  <span class="text-[11px] sm:text-xs uppercase tracking-wider text-gray-300 font-semibold">Walk-In Wednesdays &amp; By Appointment</span>
                 </div>
               </div>
 
@@ -536,15 +545,15 @@
                 href="https://share.google/XjAw1teXtXwjtb5cU"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="magnetic-btn inline-flex items-center gap-3 px-8 py-4 border border-[var(--accent)]/40 text-[var(--accent)] hover:text-noir hover:bg-[var(--accent)] text-xs font-bold uppercase tracking-[0.2em] rounded-full transition-all duration-300"
+                class="magnetic-btn w-full xs:w-auto inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 border border-[var(--accent)]/40 text-[var(--accent)] hover:text-noir hover:bg-[var(--accent)] text-xs font-bold uppercase tracking-[0.2em] rounded-full transition-all duration-300"
               >
-                <span>View Facebook &amp; Directions</span>
+                <span>View Facebook Page</span>
                 <i data-lucide="external-link" class="w-4 h-4"></i>
               </a>
             </div>
 
             <!-- Map -->
-            <div class="lg:col-span-7 rounded-2xl overflow-hidden border border-white/10 shadow-2xl h-96 relative reveal-item">
+            <div class="lg:col-span-7 rounded-2xl overflow-hidden border border-white/10 shadow-2xl h-72 sm:h-96 relative reveal-item">
               <iframe
                 title="Google Maps Studio Location"
                 src="https://maps.google.com/maps?q=1116+Guilford+Rd,+Dover-Foxcroft,+ME+04426&t=&z=15&ie=UTF8&iwloc=&output=embed"
@@ -559,25 +568,25 @@
     </main>
 
     <!-- ============ FOOTER ============ -->
-    <footer class="bg-surface border-t border-white/10 pt-20 pb-12">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 pb-16 border-b border-white/10">
+    <footer class="bg-surface border-t border-white/10 pt-12 sm:pt-20 pb-10 sm:pb-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 pb-12 sm:pb-16 border-b border-white/10">
           
-          <div class="md:col-span-2">
-            <a href="#home" class="flex items-center gap-3 mb-6">
+          <div class="sm:col-span-2">
+            <a href="#home" class="flex items-center gap-3 mb-4 sm:mb-6">
               <div class="w-8 h-8 rounded-full border border-[var(--accent)] bg-noir flex items-center justify-center">
                 <span class="font-headline text-[var(--accent)] text-xs">L</span>
               </div>
-              <span class="font-serif font-bold text-lg text-white tracking-wider">LOYALTY INK</span>
+              <span class="font-serif font-bold text-base sm:text-lg text-white tracking-wider">LOYALTY INK</span>
             </a>
-            <p class="text-gray-400 text-xs font-light max-w-sm leading-relaxed mb-6">
+            <p class="text-gray-400 text-xs font-light max-w-sm leading-relaxed mb-4">
               Custom tattoos, flash designs, cover-ups, and body piercings by Cory Nash in Dover-Foxcroft, Maine.
             </p>
           </div>
 
           <div>
-            <h4 class="text-xs uppercase tracking-[0.25em] text-[var(--accent)] font-bold mb-6">Navigation</h4>
-            <ul class="space-y-3 text-xs text-gray-400">
+            <h4 class="text-xs uppercase tracking-[0.25em] text-[var(--accent)] font-bold mb-4 sm:mb-6">Navigation</h4>
+            <ul class="space-y-2.5 sm:space-y-3 text-xs text-gray-400">
               <li><a href="#studio" class="hover:text-white transition-colors">About Studio</a></li>
               <li><a href="#events" class="hover:text-white transition-colors">Specials</a></li>
               <li><a href="#gallery" class="hover:text-white transition-colors">Portfolio</a></li>
@@ -588,15 +597,15 @@
           </div>
 
           <div>
-            <h4 class="text-xs uppercase tracking-[0.25em] text-[var(--accent)] font-bold mb-6">Contact Info</h4>
+            <h4 class="text-xs uppercase tracking-[0.25em] text-[var(--accent)] font-bold mb-4 sm:mb-6">Contact Info</h4>
             <p class="text-xs text-gray-400 mb-2">1116 Guilford Rd, Dover-Foxcroft, ME 04426</p>
             <p class="text-xs text-gray-400 mb-2"><a href="tel:+12077177479" class="hover:text-[var(--accent)]">(207) 717-7479</a></p>
-            <p class="text-xs text-gray-400 mb-2"><a href="mailto:corynash57@gmail.com" class="hover:text-[var(--accent)]">corynash57@gmail.com</a></p>
+            <p class="text-xs text-gray-400 mb-2"><a href="mailto:corynash57@gmail.com" class="hover:text-[var(--accent)] break-all">corynash57@gmail.com</a></p>
           </div>
 
         </div>
 
-        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-gray-500 gap-4">
+        <div class="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between text-[10px] sm:text-[11px] text-gray-500 gap-3 text-center sm:text-left">
           <p>&copy; 2026 Loyalty Ink. All rights reserved.</p>
           <p>Owner &amp; Artist: Cory Nash.</p>
         </div>
@@ -612,46 +621,46 @@
       x-transition:leave="transition ease-in duration-200"
       x-transition:leave-start="opacity-100"
       x-transition:leave-end="opacity-0"
-      class="fixed inset-0 z-[150] flex items-center justify-center p-4 bg-noir/90 backdrop-blur-xl"
+      class="fixed inset-0 z-[150] flex items-center justify-center p-3 sm:p-4 bg-noir/90 backdrop-blur-xl"
       style="display: none;"
     >
       <div
         @click.away="modalOpen = false"
-        class="bg-surface border border-[var(--accent)]/30 rounded-3xl p-8 md:p-12 max-w-xl w-full shadow-[0_0_80px_rgba(0,0,0,0.8)] relative max-h-[90vh] overflow-y-auto"
+        class="bg-surface border border-[var(--accent)]/30 rounded-2xl sm:rounded-3xl p-6 sm:p-10 max-w-xl w-full shadow-[0_0_80px_rgba(0,0,0,0.8)] relative max-h-[90vh] overflow-y-auto"
       >
         <button
           @click="modalOpen = false"
-          class="absolute top-6 right-6 text-gray-400 hover:text-[var(--accent)] transition-colors"
+          class="absolute top-4 right-4 text-gray-400 hover:text-[var(--accent)] transition-colors p-2"
         >
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
 
         <div x-show="!formSubmitted">
-          <span class="text-xs font-bold uppercase tracking-[0.25em] text-[var(--accent)] block mb-2">Loyalty Ink Appointment</span>
-          <h3 class="font-serif text-2xl md:text-3xl font-semibold text-white mb-6">
+          <span class="text-[10px] sm:text-xs font-bold uppercase tracking-[0.25em] text-[var(--accent)] block mb-1.5">Loyalty Ink Appointment</span>
+          <h3 class="font-serif text-xl sm:text-3xl font-semibold text-white mb-5 sm:mb-6">
             Schedule with <em class="text-[var(--accent)] italic">Cory Nash</em>
           </h3>
 
-          <form @submit.prevent="formSubmitted = true" class="space-y-5">
+          <form @submit.prevent="formSubmitted = true" class="space-y-4 sm:space-y-5">
             <div>
-              <label class="block text-[11px] uppercase tracking-[0.15em] font-bold text-gray-400 mb-2">Full Name</label>
-              <input type="text" required class="w-full bg-card border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[var(--accent)]" placeholder="John Doe" />
+              <label class="block text-[10px] sm:text-[11px] uppercase tracking-[0.15em] font-bold text-gray-400 mb-1.5">Full Name</label>
+              <input type="text" required class="w-full bg-card border border-white/10 rounded-xl px-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-[var(--accent)]" placeholder="John Doe" />
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
               <div>
-                <label class="block text-[11px] uppercase tracking-[0.15em] font-bold text-gray-400 mb-2">Email</label>
-                <input type="email" required class="w-full bg-card border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[var(--accent)]" placeholder="john@example.com" />
+                <label class="block text-[10px] sm:text-[11px] uppercase tracking-[0.15em] font-bold text-gray-400 mb-1.5">Email</label>
+                <input type="email" required class="w-full bg-card border border-white/10 rounded-xl px-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-[var(--accent)]" placeholder="john@example.com" />
               </div>
               <div>
-                <label class="block text-[11px] uppercase tracking-[0.15em] font-bold text-gray-400 mb-2">Phone</label>
-                <input type="tel" class="w-full bg-card border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[var(--accent)]" placeholder="(207) 000-0000" />
+                <label class="block text-[10px] sm:text-[11px] uppercase tracking-[0.15em] font-bold text-gray-400 mb-1.5">Phone</label>
+                <input type="tel" class="w-full bg-card border border-white/10 rounded-xl px-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-[var(--accent)]" placeholder="(207) 000-0000" />
               </div>
             </div>
 
             <div>
-              <label class="block text-[11px] uppercase tracking-[0.15em] font-bold text-gray-400 mb-2">Service Requested</label>
-              <select x-model="selectedStyle" class="w-full bg-card border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[var(--accent)]">
+              <label class="block text-[10px] sm:text-[11px] uppercase tracking-[0.15em] font-bold text-gray-400 mb-1.5">Service Requested</label>
+              <select x-model="selectedStyle" class="w-full bg-card border border-white/10 rounded-xl px-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-[var(--accent)]">
                 <option value="">Choose a service</option>
                 <option value="Custom Tattoo">Custom Tattoo</option>
                 <option value="Flash Tattoo">Flash Tattoo ($50 - $100)</option>
@@ -662,21 +671,21 @@
             </div>
 
             <div>
-              <label class="block text-[11px] uppercase tracking-[0.15em] font-bold text-gray-400 mb-2">Placement &amp; Concept</label>
-              <textarea rows="3" required class="w-full bg-card border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[var(--accent)]" placeholder="Describe your placement, piercing area, or tattoo idea..."></textarea>
+              <label class="block text-[10px] sm:text-[11px] uppercase tracking-[0.15em] font-bold text-gray-400 mb-1.5">Placement &amp; Concept</label>
+              <textarea rows="3" required class="w-full bg-card border border-white/10 rounded-xl px-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-[var(--accent)]" placeholder="Describe your placement, piercing area, or tattoo idea..."></textarea>
             </div>
 
-            <button type="submit" class="w-full py-4 bg-[var(--accent)] text-noir text-xs font-bold uppercase tracking-[0.25em] rounded-xl hover:bg-white transition-colors">
+            <button type="submit" class="w-full py-3.5 sm:py-4 bg-[var(--accent)] text-noir text-xs font-bold uppercase tracking-[0.25em] rounded-xl hover:bg-white transition-colors">
               Submit Request
             </button>
           </form>
         </div>
 
-        <div x-show="formSubmitted" class="text-center py-8">
-          <div class="w-16 h-16 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)] flex items-center justify-center mx-auto mb-6 text-[var(--accent)]">
-            <i data-lucide="check" class="w-8 h-8"></i>
+        <div x-show="formSubmitted" class="text-center py-6 sm:py-8">
+          <div class="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)] flex items-center justify-center mx-auto mb-4 sm:mb-6 text-[var(--accent)]">
+            <i data-lucide="check" class="w-6 h-6 sm:w-8 sm:h-8"></i>
           </div>
-          <h3 class="font-serif text-2xl font-bold text-white mb-3">Request Received!</h3>
+          <h3 class="font-serif text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3">Request Received!</h3>
           <p class="text-gray-400 text-xs font-light leading-relaxed mb-6">
             Thank you for reaching out to Loyalty Ink. Cory Nash will review your idea and respond shortly.<br />
             To contact Cory directly, call <a href="tel:+12077177479" class="text-[var(--accent)] underline">(207) 717-7479</a> or email <a href="mailto:corynash57@gmail.com" class="text-[var(--accent)] underline">corynash57@gmail.com</a>.

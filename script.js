@@ -1,5 +1,5 @@
 /* =========================================================
-   LOYALTY INK — Alpine.js & Custom Animations
+   LOYALTY INK — Alpine.js & Custom Mobile Interactions
    ========================================================= */
 
 function tattooStudio() {
@@ -22,10 +22,13 @@ function tattooStudio() {
     initTheme() {
       // 1. Scroll Tracker
       window.addEventListener('scroll', () => {
-        this.scrolled = window.scrollY > 50;
+        this.scrolled = window.scrollY > 30;
         const winScroll = document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        document.getElementById('scroll-tracker').style.width = (winScroll / height) * 100 + '%';
+        const tracker = document.getElementById('scroll-tracker');
+        if (tracker) {
+          tracker.style.width = (winScroll / height) * 100 + '%';
+        }
       });
 
       setTimeout(() => this.initAnimations(), 100);
@@ -62,59 +65,65 @@ function tattooStudio() {
       // 3. GSAP ScrollTrigger Configurations
       gsap.registerPlugin(ScrollTrigger);
 
-      // Parallax Hero
-      gsap.to('.hero-bg', {
-        y: '25%',
-        scale: 1.15,
-        ease: 'none',
-        scrollTrigger: { trigger: '#home', start: 'top top', end: 'bottom top', scrub: true }
-      });
+      // Parallax Hero (Desktop & Tablet only)
+      if (window.innerWidth > 640) {
+        gsap.to('.hero-bg', {
+          y: '20%',
+          scale: 1.1,
+          ease: 'none',
+          scrollTrigger: { trigger: '#home', start: 'top top', end: 'bottom top', scrub: true }
+        });
+      }
 
       // Staggered Reveals
       gsap.utils.toArray('.reveal-item').forEach(item => {
         gsap.from(item, {
-          y: 40,
+          y: 30,
           opacity: 0,
-          duration: 1.2,
+          duration: 1.0,
           ease: 'power3.out',
-          scrollTrigger: { trigger: item, start: 'top 90%' }
+          scrollTrigger: { trigger: item, start: 'top 92%' }
         });
       });
 
       // Dark Mask Unveil
       gsap.utils.toArray('.mask-reveal').forEach(container => {
         const overlay = container.querySelector('.mask-overlay');
-        gsap.to(overlay, {
-          scaleY: 0,
-          duration: 1.5,
-          ease: 'power4.inOut',
-          scrollTrigger: { trigger: container, start: 'top 80%' }
-        });
+        if (overlay) {
+          gsap.to(overlay, {
+            scaleY: 0,
+            duration: 1.2,
+            ease: 'power4.inOut',
+            scrollTrigger: { trigger: container, start: 'top 85%' }
+          });
+        }
       });
 
-      // 4. Spotlight Beam Math
-      document.querySelectorAll('.spotlight-card').forEach(card => {
-        card.addEventListener('mousemove', e => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          card.style.setProperty('--mouse-x', `${x}px`);
-          card.style.setProperty('--mouse-y', `${y}px`);
+      // 4. Spotlight Beam Math (Hover devices)
+      if (window.matchMedia('(hover: hover)').matches) {
+        document.querySelectorAll('.spotlight-card').forEach(card => {
+          card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+          });
         });
-      });
 
-      // 5. Magnetic CTA Pull
-      document.querySelectorAll('.magnetic-btn').forEach(btn => {
-        btn.addEventListener('mousemove', (e) => {
-          const rect = btn.getBoundingClientRect();
-          const x = (e.clientX - rect.left - rect.width / 2) * 0.4;
-          const y = (e.clientY - rect.top - rect.height / 2) * 0.4;
-          btn.style.transform = `translate(${x}px, ${y}px)`;
+        // 5. Magnetic CTA Pull
+        document.querySelectorAll('.magnetic-btn').forEach(btn => {
+          btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = (e.clientX - rect.left - rect.width / 2) * 0.3;
+            const y = (e.clientY - rect.top - rect.height / 2) * 0.3;
+            btn.style.transform = `translate(${x}px, ${y}px)`;
+          });
+          btn.addEventListener('mouseleave', () => {
+            btn.style.transform = `translate(0px, 0px)`;
+          });
         });
-        btn.addEventListener('mouseleave', () => {
-          btn.style.transform = `translate(0px, 0px)`;
-        });
-      });
+      }
     }
   };
 }
